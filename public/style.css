@@ -142,6 +142,10 @@ section section {
 	position: relative;
 }
 
+.interactive-ui:focus-visible {
+	outline: none !important;
+}
+
 .interactive-ui > * {
 	min-width: calc(var(--box-width));
 	padding-right: var(--box-padding);
@@ -205,6 +209,10 @@ section section {
 	border: 1px solid var(--black);
 }
 
+input:disabled {
+	opacity: 0.55;
+}
+
 pre {
 	background-color: #25242417;
 	padding: 1rem;
@@ -233,6 +241,11 @@ pre {
 	margin-bottom: 0.5rem;
 }
 
+#contract-form i {
+	display: block;
+	margin-top: 1rem;
+}
+
 .radio-label h4 {
 	display: inline-block;
 	font-size: 1rem;
@@ -251,6 +264,10 @@ pre {
 	gap: 1rem;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+}
+
+.contracts.no-contracts {
+	display: block;
 }
 
 #api-step h3 {

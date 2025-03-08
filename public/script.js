@@ -86,6 +86,11 @@ window.onload = () => {
 			);
 
 			uiRoot.style.setProperty("--stage", stageIndex);
+			if (animate) {
+				uiRoot.tabIndex = "0";
+				uiRoot.focus();
+				uiRoot.tabIndex = "-1";
+			}
 		};
 
 		const form = document.querySelector("#verify-form");
@@ -120,7 +125,14 @@ window.onload = () => {
                 `;
 			};
 
-			contractForm.querySelector(".contracts").innerHTML = contracts.map((data) => contractMarkup(data));
+			const constractsWrapper = contractForm.querySelector(".contracts");
+			if (contracts.length) {
+				constractsWrapper.innerHTML = contracts.map((data) => contractMarkup(data));
+			} else {
+				constractsWrapper.innerText = `Det ser ikke ut som at du har noen aktive parkeringsavtaler for øyeblikket. Så her er det lite vi får gjort :/`;
+				constractsWrapper.classList.add("no-contracts");
+				contractForm.querySelector(".button").setAttribute("disabled", "");
+			}
 		};
 
 		contractForm.addEventListener("submit", async function (event) {
