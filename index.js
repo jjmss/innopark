@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import supabase, { getUserByApiKey } from "./lib/supabase.js";
+import supabase, { getUserByApiKey, request } from "./lib/supabase.js";
 import manager from "./lib/manager.js";
 import Parking from "./lib/bot.js";
 import { encrypt } from "./lib/encryption.js";
@@ -23,6 +23,7 @@ const useParking = async (req, res, next) => {
 	}
 
 	req.user = manager.getInstance(user);
+	req.apiKey = apiKey;
 
 	next();
 };
@@ -103,6 +104,7 @@ app.get("/api/contracts", useParking, async (req, res) => {
 });
 
 app.get("/api/current/", useParking, async (req, res) => {
+	request(req.apiKey, "lookup");
 	try {
 		const { contractId } = req.params;
 
@@ -120,6 +122,7 @@ app.get("/api/current/", useParking, async (req, res) => {
 });
 
 app.get("/api/change/:reg", useParking, async (req, res) => {
+	request(req.apiKey, "change");
 	try {
 		const newReg = req.params.reg;
 
