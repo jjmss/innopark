@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>- InnoPark</title>
+		<link rel="stylesheet" href="/public/style.css" />
+	</head>
+	<body>
+		<%- include('partials/header.ejs') %>
+
+		<main>
+			<section>
+				<h1>Brukervilkår og betingelser</h1>
+
+				<h2>1. Aksept av vilkår</h2>
+				<p>
+					Ved å bruke InnoPark godtar du disse vilkårene. Hvis du ikke aksepterer dem, vennligst avstå fra å
+					bruke tjenesten.
+				</p>
+
+				<h2>2. Formål med tjenesten</h2>
+				<p>
+					InnoPark er et hobbyprosjekt som bruker et script for å automatisere sjekk og endring av
+					registreringsnummer knyttet til parkeringsavtaler på InnoCamp Steinkjer via iOS-snarveier.
+				</p>
+
+				<h2>3. Brukernavn og passord</h2>
+				<p>
+					For at scriptet skal fungere, må du oppgi brukernavn og passord som gir tilgang til
+					<a href="https://pportal.cowisys.no/steinkjer/" target="_blank"
+						>https://pportal.cowisys.no/steinkjer/</a
+					>. Disse opplysningene vil bli lagret midlertidig for å kunne automatisere scriptet. Ved å bruke
+					tjenesten godtar du denne lagringen og aksepterer risikoen for at denne informasjonen kan bli brukt
+					til å logge inn på denne tjenesten automatisk. Det anbefales sterkt å bruke et tilfeldig og unikt
+					passord for
+					<a href="https://pportal.cowisys.no/steinkjer/" target="_blank">pportal.cowisys.no</a> for å
+					redusere risikoen for at andre kontoer eller plattformer kan bli kompromittert dersom det skulle
+					oppstå et sikkerhetsbrudd. Unngå å bruke samme passord som på andre tjenester.
+				</p>
+
+				<h2>4. Begrenset ansvar</h2>
+				<p>
+					InnoPark tar ikke ansvar for tap av kontoinformasjon, uautorisert tilgang eller eventuelle
+					kostnader, bøter eller konflikter som kan oppstå ved bruk av tjenesten. Bruk skjer på eget ansvar.
+				</p>
+
+				<h2>5. Ingen garanti for tilgjengelighet</h2>
+				<p>
+					InnoPark kan legges ned eller bli utilgjengelig uten forvarsel. Det gis ingen garanti for oppetid
+					eller funksjonalitet.
+				</p>
+
+				<h2>6. Oppdateringer og endringer</h2>
+				<p>
+					InnoPark forbeholder seg retten til å endre vilkårene når som helst. Oppdateringer vil bli publisert
+					på nettsiden.
+				</p>
+
+				<h2>7. Begrenset support</h2>
+				<p>
+					Support tilbys kun i begrenset omfang, og InnoPark garanterer ikke hjelp med tekniske problemer
+					eller feil.
+				</p>
+
+				<h2>8. Avslutning av tilgang</h2>
+				<p>InnoPark kan når som helst avslutte din tilgang uten forvarsel.</p>
+			</section>
+		</main>
+
+		<%- include('partials/footer.ejs') %>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>InnoPark</title>
+		<link rel="stylesheet" type="text/css" href="/public/style.css" />
+	</head>
+	<body class="front-page">
+		<%- include('partials/header.ejs') %>
+
+		<main>
+			<div>
+				<h1>Trenger du å bytte hvilken bil <br />parkeringsavtalen gjelder for?</h1>
+				<p>
+					Gjør det enkelt å bytte registreringsnummer med et par trykk på mobilen. Bare følg enkle
+					instruksjoner for å sette opp iOS Shortcuts.
+				</p>
+				<div class="cta-wrapper">
+					<a href="/oppsett" class="button">Sett opp på 3 steg</a>
+					<a href="/tos" class="button-link">Brukervilkår og betingelser</a>
+				</div>
+			</div>
+		</main>
+
+		<%- include('partials/footer.ejs') %>
+	</body>
+</html>

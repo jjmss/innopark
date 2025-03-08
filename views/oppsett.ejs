@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Oppsett - InnoPark</title>
+		<link rel="stylesheet" href="/public/style.css" />
+	</head>
+	<body class="setup">
+		<%- include('partials/header.ejs') %>
+
+		<main>
+			<div>
+				<section>
+					<h1>Oppsett av InnoPark</h1>
+					<p>
+						Følg trinnene nedenfor for å enkelt endre registreringsnummeret på parkeringsavtalen din
+					</p>
+					<p>
+						<strong>NB:</strong> Ved å sette opp og bruke tjenesten godtar du automatisk
+						<a href="/tos">brukervilkår og betingelsene</a>
+					</p>
+				</section>
+				<div class="instructions">
+					<section>
+						<h2>1. Verifiser og generer API-nøkkel</h2>
+						<p>
+							Skriv inn brukernavn og passordet for
+							<a href="https://pportal.cowisys.no/steinkjer/" target="_blank"
+								>https://pportal.cowisys.no/steinkjer/</a
+							> kontoen din i skjemaet under og klikk verifiser. Velger deretter hvilke aktiv avtale du ønsker å knytte InnoPark til og generer en API-nøkkel
+						</p>
+						<div class="interactive-ui">
+						<form id="verify-form" method="POST">
+							<div class="form-field">
+								<label for="username">Brukernavn:</label>
+								<input type="text" id="username" name="username" placeholder="Brukernavn" required />
+							</div>
+
+							<div class="form-field">
+								<label for="password">Passord:</label>
+								<input type="password" id="password" name="password" placeholder="Passord" required />
+							</div>
+
+							<input class="button" type="submit" value="Verifiser"></input>
+						</form>
+						<form id="contract-form" method="POST">
+							<div class="form-field">
+								<h3>Velg kontrakt</h3>
+								<div class="contracts">
+								</div>
+							</div>
+							<input class="button" type="submit" value="Generer API-nøkkel"></input>
+						</form>
+						<div id="apikey-step">
+							<h3>API-nøkkel</h3>
+							<div class="api-key-wrapper">
+								<pre id="innopark-apiKey"></pre>
+								<button class="api-key-copy-button" id="api-key-copy">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M145.5 68c5.3-20.7 24.1-36 46.5-36s41.2 15.3 46.5 36c1.8 7.1 8.2 12 15.5 12l18 0c8.8 0 16 7.2 16 16l0 32-96 0-96 0 0-32c0-8.8 7.2-16 16-16l18 0c7.3 0 13.7-4.9 15.5-12zM192 0c-32.8 0-61 19.8-73.3 48L112 48C91.1 48 73.3 61.4 66.7 80L64 80C28.7 80 0 108.7 0 144L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-304c0-35.3-28.7-64-64-64l-2.7 0c-6.6-18.6-24.4-32-45.3-32l-6.7 0C253 19.8 224.8 0 192 0zM320 112c17.7 0 32 14.3 32 32l0 304c0 17.7-14.3 32-32 32L64 480c-17.7 0-32-14.3-32-32l0-304c0-17.7 14.3-32 32-32l0 16c0 17.7 14.3 32 32 32l96 0 96 0c17.7 0 32-14.3 32-32l0-16zM208 80a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zM136 272a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zm40-16c-8.8 0-16 7.2-16 16s7.2 16 16 16l96 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-96 0zm0 96c-8.8 0-16 7.2-16 16s7.2 16 16 16l96 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-96 0zm-64 40a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>
+								</button>
+							</div>
+							<p>Kopier API-nøkkelen og fortsett til neste trinn for å sette opp iOS-snarveiene.</p>
+							<i>* Denne API-nøkkelen gir autorisert tilgang til å gjøre automatiserte handlinger,
+								inkludert å endre registreringsnummeret i din parkeringsavtale.</i>
+						</div>
+					</section>
+					<section>
+						<h2>2. Last ned snarveiene</h2>
+						<p>For å få nytte av InnoPark trenger du å sette opp en snarvei widget på en iOS enhet, enten det er iPhone/iPad/Mac - så lenge enheten har støtte for "<a href="https://support.apple.com/no-no/guide/shortcuts/welcome/ios" target="_blank">Snarveier</a>".</p>
+						<!-- <p>Oppsettet her krever 2 snarveier. Den første snarveien er for å koble til og lagre API-nøkkelen på enheten din. Den andre snarveien er for utføre det faktiske bytte av registreringsnummeret.</p> -->
+						
+						<section>
+							<h3>2.1. Lagre API-nøkkelen til enheten</h3>
+							<p>Følg knappen under og lagre iOS-snarveien "InnoPark Oppsett" på den ønsket enheten din</p>
+							<a class="button outline-button" href="https://www.icloud.com/shortcuts/1f29db63f6fb41b0b66e660976496cf4">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+								<span>Legg til snarveien "InnoPark Oppsett"</span>
+							</a>
+							<p>
+								Når du har fått lagt til snarveien, sørg for at du har kopiert API-nøkklen fra trinn 1 og kjør snarveien.
+							</p>
+						</section>
+
+						<section>
+							<h3>2.2. Last ned hovedsnarveien for å bytte registreringsnummer</h3>
+							<p>Nå som API-nøkkelen er lagret på enheten, kan du laste ned hovedsnarveien som utfører selve byttet av registreringsnummeret på parkeringsavtalen din. Denne snarveien bruker API-nøkkelen for å autorisere tilkoblingen og gjennomføre endringen for deg.
+							</p>
+							<a class="button outline-button" href="https://www.icloud.com/shortcuts/b75135f8467d4bdcab77cab67a58828f">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+								<span>Legg til hovedsnarveien "InnoPark"</span>
+							</a>
+							<p>Når snarveien er lagt til, kan du enkelt bytte registreringsnummer med et trykk.</p>
+						</section>
+					</section>
+				</div>
+			</div>
+		</main>
+
+		<%- include('partials/footer.ejs') %>
+	</body>
+</html>

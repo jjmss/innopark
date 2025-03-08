@@ -1,20 +1,19 @@
-# InnoCamp parkering
+# InnoPark
 
-Enkel express app som endrer på regnr på bil for parkering via pportal.cowisys.no
+Express app + guide for oppsett for å endrer på regnr på bil for parkering via pportal.cowisys.no
 
 ## Setup .env
 
-| Variabler          | Beskrivelse                                                                               |
-| ------------------ | ----------------------------------------------------------------------------------------- |
-| `PPORTAL_USERNAME` | Brukernavnet på https://pportal.cowisys.no/steinkjer/Account/Login                        |
-| `PPORTAL_PASSWORD` | Passordet ditt på https://pportal.cowisys.no/steinkjer/Account/Login                      |
-| `APP_SECRET`       | Hemmelig nøkkel som sjekkes i GET request for å sørge for at det er du som gjør endringer |
+| Variabler              | Beskrivelse                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `SUPABASE_PROJECT_URL` | Prosjekt url til supabase (db)                                                  |
+| `SUPABASE_SERVICE_KEY` | Service key til supabase (db)                                                   |
+| `AES_SECRET_KEY`       | Krypterings secret som brukes for å ha litt mer sikkerhet på passord som lagres |
 
 ## Publiser til en server
 
 Kjør ut slik at den er tilgjengelig via url.
 
-## iOS Snarvei
+## Følg guide
 
-Bruk templaten her: https://www.icloud.com/shortcuts/60bba68df5724b2794c04a217ececd80
-og juster på delen som gjør request med korrekt url og `x-secret` (lik `APP_SECRET`)
+Kjør opp server og naviger deg til /oppsett og følg guide der.
