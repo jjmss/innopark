@@ -54,6 +54,14 @@ class APICaller {
 }
 
 window.onload = () => {
+	const main = document.querySelector("main");
+	const footer = document.querySelector("footer");
+
+	const { height: footerHeight } = footer.getBoundingClientRect();
+	const height = window.innerHeight - footerHeight;
+
+	// main.style.setProperty("min-height", `${height}px`);
+
 	const uiRoot = document.querySelector(".interactive-ui");
 
 	if (uiRoot) {

@@ -1,6 +1,7 @@
 html {
 	--black: #252424;
 	--content-max-width: 56rem;
+	--page-max-width: 72rem;
 	font-size: 16px;
 	font-family: Roboto, sans-serif;
 	line-height: 1.5;
@@ -21,12 +22,29 @@ body > * {
 	width: 100%;
 }
 
+.page-content {
+	min-height: calc(100vh - 3.5rem);
+}
+
 h1 {
 	font-size: 3.5rem;
+	font-size: clamp(2rem, 1.25rem + 2.5vw, 3.5rem);
 	font-weight: bold;
 }
 
-header {
+h2 {
+	font-size: clamp(1.25rem, 0.875rem + 1.25vw, 2rem);
+}
+
+h3 {
+	font-size: clamp(1.125rem, 0.9375rem + 0.625vw, 1.5rem);
+}
+
+h4 {
+	font-size: clamp(1.0625rem, 0.9688rem + 0.3125vw, 1.25rem);
+}
+
+.header-content {
 	margin-block: 3.5rem;
 	display: flex;
 	align-items: center;
@@ -34,7 +52,7 @@ header {
 }
 
 header {
-	max-width: 72rem;
+	max-width: var(--page-max-width);
 }
 
 main,
@@ -42,7 +60,8 @@ header {
 	margin-inline: auto;
 }
 
-main > * {
+main > *,
+.header-wrapper {
 	padding-inline: 1.5rem;
 }
 
@@ -57,7 +76,7 @@ main {
 	min-height: 50vh;
 	display: flex;
 	align-items: center;
-	max-width: 72rem;
+	max-width: var(--page-max-width);
 }
 
 h1 {
@@ -66,7 +85,7 @@ h1 {
 
 .front-page p {
 	max-width: 40rem;
-	font-size: 1.25rem;
+	font-size: clamp(1.125rem, 1.0625rem + 0.2083vw, 1.25rem);
 }
 
 .cta-wrapper {
@@ -74,6 +93,7 @@ h1 {
 	display: flex;
 	gap: 2rem;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 a {
@@ -86,7 +106,7 @@ a {
 	background-color: var(--black);
 	color: #fff;
 	border-radius: 0.5rem;
-	font-size: 1.125rem;
+	font-size: clamp(1rem, 0.9375rem + 0.2083vw, 1.125rem);
 	text-decoration: none;
 	border: none;
 	max-width: max-content;
@@ -94,12 +114,18 @@ a {
 }
 
 .front-page .button {
-	font-size: 1.25rem;
+	font-size: clamp(1.125rem, 1.0625rem + 0.2083vw, 1.25rem);
 }
 
 a.button-link {
-	font-size: 1.25rem;
+	font-size: clamp(1.125rem, 1.0625rem + 0.2083vw, 1.25rem);
 	text-decoration: underline;
+}
+
+footer .button-link,
+footer p,
+.front-page footer p {
+	font-size: inherit;
 }
 
 footer {
@@ -108,8 +134,28 @@ footer {
 	min-height: 2rem;
 }
 
-footer > div {
+.footer-wrapper {
 	padding: 1rem;
+	max-width: var(--page-max-width);
+	margin-inline: auto;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+footer a {
+	color: #fff;
+}
+
+.bmc-container {
+	transform: scale(0.5);
+	transform-origin: center;
 }
 
 section {

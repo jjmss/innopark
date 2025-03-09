@@ -7,21 +7,23 @@
 		<link rel="stylesheet" type="text/css" href="/public/style.css" />
 	</head>
 	<body class="front-page">
-		<%- include('partials/header.ejs') %>
+		<div class="page-content">
+			<%- include('partials/header.ejs') %>
 
-		<main>
-			<div>
-				<h1>Trenger du å bytte hvilken bil <br />parkeringsavtalen gjelder for?</h1>
-				<p>
-					Gjør det enkelt å bytte registreringsnummer med et par trykk på mobilen. Bare følg enkle
-					instruksjoner for å sette opp iOS Shortcuts.
-				</p>
-				<div class="cta-wrapper">
-					<a href="/oppsett" class="button">Sett opp på 3 steg</a>
-					<a href="/tos" class="button-link">Brukervilkår og betingelser</a>
+			<main>
+				<div>
+					<h1>Trenger du å bytte hvilken bil <br />parkeringsavtalen gjelder for?</h1>
+					<p>
+						Gjør det enkelt å bytte registreringsnummer med et par trykk på mobilen. Bare følg enkle
+						instruksjoner for å sette opp iOS Shortcuts.
+					</p>
+					<div class="cta-wrapper">
+						<a href="/oppsett" class="button">Sett opp på 3 trinn</a>
+						<a href="/tos" class="button-link">Brukervilkår og betingelser</a>
+					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</div>
 
 		<%- include('partials/footer.ejs') %>
 	</body>
